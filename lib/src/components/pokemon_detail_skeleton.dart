@@ -25,9 +25,9 @@ class PokemonDetailSkeleton extends StatelessWidget {
             alignment: Alignment.topRight,
             child: Image.asset(
               'assets/images/pokebola.png',
-              width: 150,
+              width: 250,
               color: HexColor.createMaterialColor(
-                  pokemonDetail.types![0].type!.getColorBasedOnAbility())[300],
+                  pokemonDetail.types![0].type!.getColorBasedOnAbility())[400],
             ),
           ),
         ),

@@ -20,7 +20,7 @@ class PokemonCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      elevation: 3,
+      elevation: 2,
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -38,12 +38,12 @@ class PokemonCard extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(10),
               child: Row(
                 children: [
                   const Spacer(),
                   Text(
-                    '#0${pokemon.getId()}',
+                    pokemon.getIdWithHashtag(),
                     style: TextStyle(color: Colors.grey[400]),
                   )
                 ],
@@ -59,7 +59,7 @@ class PokemonCard extends StatelessWidget {
                 width: double.infinity,
                 child: Center(
                     child: Padding(
-                  padding: const EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 25),
                   child: Text(
                     pokemon.getNameUpperCaseFirstLetter(),
                   ),
@@ -74,8 +74,8 @@ class PokemonCard extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: pokemon.getPokemonImage(
-                    width: phoneWidth > phoneHeight ? 100 : phoneWidth / 8,
-                    height: phoneWidth > phoneHeight ? 100 : 40),
+                    width: phoneWidth > phoneHeight ? 100 : phoneWidth / 5,
+                    height: phoneWidth > phoneHeight ? 100 : 80),
               ),
             ),
           ],

@@ -94,7 +94,7 @@ class _LoadHomePageState extends State<LoadHomePage> {
                       children: [
                         Flexible(
                             child: TextField(
-                              style: Theme.of(context).textTheme.bodyMedium,
+                          style: Theme.of(context).textTheme.bodyMedium,
                           controller: searchController,
                           onSubmitted: (String? value) {
                             pokemonBloc.add(SearchForPokemon(name: value));
@@ -120,9 +120,7 @@ class _LoadHomePageState extends State<LoadHomePage> {
                         CircleAvatar(
                           backgroundColor: Colors.white,
                           child: IconButton(
-                              onPressed: () {
-                                print('change');
-                              },
+                              onPressed: () {},
                               icon: Icon(
                                 Icons.tag,
                                 color: primaryColor,

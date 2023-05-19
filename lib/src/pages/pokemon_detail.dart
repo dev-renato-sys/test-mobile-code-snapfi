@@ -5,8 +5,9 @@ import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemons_dto.dart'
 import 'package:snapfi_app/src/bloc/pokemon/bloc.dart';
 import 'package:snapfi_app/src/bloc/pokemon/event.dart';
 import 'package:snapfi_app/src/bloc/pokemon/state.dart';
+import 'package:snapfi_app/src/components/pokemon_about.dart';
+import 'package:snapfi_app/src/components/pokemon_base_stats.dart';
 import 'package:snapfi_app/src/components/pokemon_detail_skeleton.dart';
-import 'package:snapfi_app/src/components/pokemon_height_weight_moves.dart';
 import 'package:snapfi_app/src/components/pokemon_type.dart';
 import 'package:snapfi_app/src/theme/light.dart';
 
@@ -28,6 +29,22 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
     super.initState();
     setState(() {
       _index = widget.index;
+    });
+  }
+
+  onPressNextPokemon({required PokemonBloc pokemonBloc}) {
+    pokemonBloc.add(
+        GetPokemonDetails(idPokemon: widget.pokemonList[_index + 1].getId()));
+    setState(() {
+      _index = _index + 1;
+    });
+  }
+
+  onPressPreviousPokemon({required PokemonBloc pokemonBloc}) {
+    pokemonBloc.add(
+        GetPokemonDetails(idPokemon: widget.pokemonList[_index - 1].getId()));
+    setState(() {
+      _index = _index - 1;
     });
   }
 
@@ -106,7 +123,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                               ),
                               const Spacer(),
                               Text(
-                                '#0${widget.pokemonList[_index].getId()}',
+                                widget.pokemonList[_index].getIdWithHashtag(),
                                 style: Theme.of(context).textTheme.labelLarge,
                               ),
                             ],
@@ -121,8 +138,8 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                 child: SizedBox(
                                   width: phoneWidth,
                                   height: phoneWidth > phoneHeight
-                                      ? phoneHeight / 2.15
-                                      : phoneHeight / 1.50,
+                                      ? phoneHeight / 2.7
+                                      : phoneHeight / 1.65,
                                   child: SingleChildScrollView(
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -134,78 +151,13 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                         const SizedBox(
                                           height: 20.0,
                                         ),
-                                        Text('About',
-                                            style: TextStyle(
-                                                color: pokemonDetail
-                                                    .types![0].type!
-                                                    .getColorBasedOnAbility(),
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.bold)),
+                                        PokemonAbout(
+                                            pokemonDetail: pokemonDetail),
                                         const SizedBox(
                                           height: 20.0,
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 15.0, horizontal: 20.0),
-                                          child: SizedBox(
-                                            height: 60,
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  PokemonInfos(
-                                                      listPokemonInfosDto: [
-                                                        PokemonInfosDto(
-                                                            Icons
-                                                                .balance_outlined,
-                                                            '${pokemonDetail.getDoubleWeight()} kg',
-                                                            'Weight'),
-                                                        PokemonInfosDto(
-                                                            Icons
-                                                                .height_outlined,
-                                                            '${pokemonDetail.getDoubleHeight()} m',
-                                                            'Height'),
-                                                      ]),
-                                                  VerticalDivider(
-                                                    width: 30,
-                                                    thickness: 1,
-                                                    // indent: 20,
-                                                    endIndent: 0,
-                                                    color: Colors.grey[350],
-                                                  ),
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      const SizedBox(height: 2.0,),
-                                                      Text(
-                                                        pokemonDetail.abilities!.map((e) => e.ability!.name).join('\n'),
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10.0,
-                                                      ),
-                                                      const Text(
-                                                        'Moves',
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ]),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 20.0,
-                                        ),
-                                        Text('Base Stats',
-                                            style: TextStyle(
-                                                color: pokemonDetail
-                                                    .types![0].type!
-                                                    .getColorBasedOnAbility(),
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.bold))
+                                        PokemonBaseStats(
+                                            pokemonDetail: pokemonDetail)
                                       ]),
                                     ),
                                   ),
@@ -222,31 +174,17 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                 children: [
                                   if (_index != 0)
                                     IconButton(
-                                        onPressed: () {
-                                          pokemonBloc.add(GetPokemonDetails(
-                                              idPokemon: widget
-                                                  .pokemonList[_index - 1]
-                                                  .getId()));
-                                          setState(() {
-                                            _index = _index - 1;
-                                          });
-                                        },
+                                        onPressed: () => onPressPreviousPokemon(
+                                            pokemonBloc: pokemonBloc),
                                         icon: const Icon(Icons.arrow_back_ios)),
                                   const Spacer(),
                                   widget.pokemonList[_index]
-                                      .getPokemonImage(width: 110, height: 110),
+                                      .getPokemonImage(width: 200, height: 200),
                                   const Spacer(),
                                   if (widget.pokemonList.length - 1 != _index)
                                     IconButton(
-                                        onPressed: () {
-                                          pokemonBloc.add(GetPokemonDetails(
-                                              idPokemon: widget
-                                                  .pokemonList[_index + 1]
-                                                  .getId()));
-                                          setState(() {
-                                            _index = _index + 1;
-                                          });
-                                        },
+                                        onPressed: () => onPressNextPokemon(
+                                            pokemonBloc: pokemonBloc),
                                         icon:
                                             const Icon(Icons.arrow_forward_ios))
                                 ],

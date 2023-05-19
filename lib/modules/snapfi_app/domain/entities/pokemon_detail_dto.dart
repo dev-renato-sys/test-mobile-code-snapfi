@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_void_to_null, unnecessary_question_mark
+
 import 'package:flutter/material.dart';
 import 'package:snapfi_app/helpers/hex_color.dart';
 
@@ -147,11 +149,11 @@ class PokemonDetail {
     return data;
   }
 
-  double getDoubleHeight () {
+  double getDoubleHeight() {
     return height! / 10;
   }
 
-    double getDoubleWeight () {
+  double getDoubleWeight() {
     return height! / 10;
   }
 }
@@ -200,44 +202,45 @@ class Ability {
   }
 
   Color getColorBasedOnAbility() {
-    switch (name) {
-      case 'grass':
-        return HexColor.fromHex('#74CB48');
-      case 'bug':
-        return HexColor.fromHex('#A7B723');
-      case 'dark':
-        return HexColor.fromHex('#75574C');
-      case 'dragon':
-        return HexColor.fromHex('#7037FF');
-      case 'electric':
-        return HexColor.fromHex('#F9CF30');
-      case 'fairy':
-        return HexColor.fromHex('#E69EAC');
-      case 'fighting':
-        return HexColor.fromHex('#C12239');
-      case 'fire':
-        return HexColor.fromHex('#F57D31');
-      case 'flying':
-        return HexColor.fromHex('#A891EC');
-      case 'poison':
-        return HexColor.fromHex('#A43E9E');
-      case 'water':
-        return HexColor.fromHex('#6493EB');
-      case 'normal':
-        return HexColor.fromHex('#AAA67F');
-      case 'ground':
-        return HexColor.fromHex('#DEC16B');
-      case 'ice':
-        return HexColor.fromHex('#9AD6DF');
-      case 'psychic':
-        return HexColor.fromHex('#FB5584');
-      default:
-        return Colors.black;
-    }
+    final Map<String, Color> abilityColors = {
+      'grass': HexColor.fromHex('#74CB48'),
+      'bug': HexColor.fromHex('#A7B723'),
+      'dark': HexColor.fromHex('#75574C'),
+      'dragon': HexColor.fromHex('#7037FF'),
+      'electric': HexColor.fromHex('#F9CF30'),
+      'fairy': HexColor.fromHex('#E69EAC'),
+      'fighting': HexColor.fromHex('#C12239'),
+      'fire': HexColor.fromHex('#F57D31'),
+      'flying': HexColor.fromHex('#A891EC'),
+      'poison': HexColor.fromHex('#A43E9E'),
+      'water': HexColor.fromHex('#6493EB'),
+      'normal': HexColor.fromHex('#AAA67F'),
+      'ground': HexColor.fromHex('#DEC16B'),
+      'ice': HexColor.fromHex('#9AD6DF'),
+      'psychic': HexColor.fromHex('#FB5584'),
+      'rock': HexColor.fromHex('#B69E31'),
+      'steel': HexColor.fromHex('#B7B9D0'),
+      'ghost': HexColor.fromHex('#70559B'),
+    };
+
+    return abilityColors[name] ?? Colors.black;
   }
 
   String getNameUpperCaseFirstLetter() {
     return '${name?.substring(0, 1).toUpperCase()}${name!.substring(1, name!.length)}';
+  }
+
+  String getCorrectNameBasedOnNaming() {
+    final Map<String, String> correctName = {
+      'hp': 'hp',
+      'attack': 'atk',
+      'defense': 'def',
+      'special-attack': 'satk',
+      'special-defense': 'sdef',
+      'speed': 'spd',
+    };
+
+    return correctName[name] ?? '';
   }
 }
 
@@ -1026,6 +1029,10 @@ class Stats {
       data['stat'] = stat!.toJson();
     }
     return data;
+  }
+
+  String getBaseStat() {
+    return baseStat.toString().padLeft(3, '0');
   }
 }
 
