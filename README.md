@@ -1,0 +1,21 @@
+# snapfi_app
+
+A new Flutter project.
+
+# running project first time
+# you must run on terminal and install flutter
+# to install flutter follow this link https://docs.flutter.dev/get-started/install/windows
+
+
+# getting dependencies
+
+flutter pub get
+
+# running project
+
+flutter run
+
+# another way to run flutter would be on debuging mode
+
+
+
