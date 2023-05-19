@@ -181,7 +181,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      SizedBox(height: 2.0,),
+                                                      const SizedBox(height: 2.0,),
                                                       Text(
                                                         pokemonDetail.abilities!.map((e) => e.ability!.name).join('\n'),
                                                       ),
