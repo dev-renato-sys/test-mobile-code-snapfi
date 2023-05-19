@@ -3,7 +3,7 @@
 A new Flutter project.
 
 # running project first time
-# to install flutter follow this link https://docs.flutter.dev/get-started/install/windows
+# to install flutter follow this link https://docs.flutter.dev/get-started/install
 
 
 ### getting dependencies
