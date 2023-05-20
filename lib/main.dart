@@ -58,6 +58,17 @@ class _LoadHomePageState extends State<LoadHomePage> {
     super.dispose();
   }
 
+  onOutsideOfView({required PokemonBloc pokemonBloc}) {
+    if (listPokemonController.position.pixels ==
+        listPokemonController.position.maxScrollExtent) {
+      setState(() {
+        limit = limit + 5;
+      });
+
+      pokemonBloc.add(PokemonFetchList(limit: limit));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final PokemonBloc pokemonBloc = BlocProvider.of<PokemonBloc>(context);
@@ -150,18 +161,8 @@ class _LoadHomePageState extends State<LoadHomePage> {
                               vertical: 15.0, horizontal: 10.0),
                           child: GridView.count(
                             controller: listPokemonController
-                              ..addListener(() {
-                                if (listPokemonController.position.pixels ==
-                                    listPokemonController
-                                        .position.maxScrollExtent) {
-                                  setState(() {
-                                    limit = limit + 5;
-                                  });
-
-                                  pokemonBloc
-                                      .add(PokemonFetchList(limit: limit));
-                                }
-                              }),
+                              ..addListener(() =>
+                                  onOutsideOfView(pokemonBloc: pokemonBloc)),
                             crossAxisCount: 3,
                             children: [
                               ...listPokemon.map((Pokemon e) => PokemonCard(

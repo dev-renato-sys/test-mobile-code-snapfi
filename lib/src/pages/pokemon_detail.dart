@@ -139,7 +139,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                   width: phoneWidth,
                                   height: phoneWidth > phoneHeight
                                       ? phoneHeight / 2.7
-                                      : phoneHeight / 1.65,
+                                      : phoneHeight / 1.85,
                                   child: SingleChildScrollView(
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -179,7 +179,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                         icon: const Icon(Icons.arrow_back_ios)),
                                   const Spacer(),
                                   widget.pokemonList[_index]
-                                      .getPokemonImage(width: 200, height: 200),
+                                      .getPokemonImage(width: 220, height: 250),
                                   const Spacer(),
                                   if (widget.pokemonList.length - 1 != _index)
                                     IconButton(
