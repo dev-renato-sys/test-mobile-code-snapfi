@@ -90,7 +90,7 @@ class _LoadHomePageState extends State<LoadHomePage> {
                           scale: 2,
                         ),
                         const SizedBox(
-                          width: 10.0,
+                          width: 15.0,
                         ),
                         Text(
                           'Pokedéx',
@@ -107,17 +107,24 @@ class _LoadHomePageState extends State<LoadHomePage> {
                             child: TextField(
                           style: Theme.of(context).textTheme.bodyMedium,
                           controller: searchController,
+                          onChanged: (String? value) {
+                            setState(() {});
+                          },
                           onSubmitted: (String? value) {
                             pokemonBloc.add(SearchForPokemon(name: value));
                           },
                           decoration: InputDecoration(
                               hintText: 'Search',
-                              suffixIcon: IconButton(
-                                  onPressed: () => {
-                                        pokemonBloc.add(PokemonFetchList()),
-                                        searchController.clear()
-                                      },
-                                  icon: const Icon(Icons.remove_circle)),
+                              suffixIcon: searchController.text.isEmpty
+                                  ? null
+                                  : IconButton(
+                                      onPressed: () => {
+                                            pokemonBloc.add(PokemonFetchList()),
+                                            setState(() {
+                                              searchController.clear();
+                                            })
+                                          },
+                                      icon: const Icon(Icons.remove_circle)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(40.0)),
                               prefixIcon: Icon(
