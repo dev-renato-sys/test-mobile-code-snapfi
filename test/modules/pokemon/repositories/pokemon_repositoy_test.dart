@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:snapfi_app/modules/snapfi_app/data/models/pokemon_response_model.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemon_detail_dto.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemons_dto.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/errors/errors.dart';
@@ -16,26 +16,28 @@ import 'pokemon_repositoy_test.mocks.dart';
 Future<void> main() async {
   final MockPokemonDatasource mockPokemonDatasource = MockPokemonDatasource();
   final MockPokemonRepository mockPokemonRepository = MockPokemonRepository();
-
+  late HttpHelper httpHelper = HttpHelper(url: '');
+  const String baseUrl = 'https://pokeapi.co/api/v2/';
   group(
       'check if pokemons response is received succesfully and tranformed into dto/model',
       () {
-    test('test model [PokemonResponseModel]', () async {
+    test('test model and http request [PokemonResponseModel]', () async {
       when(mockPokemonDatasource.pokemons()).thenAnswer((_) async {
-        return Dio().get('https://pokeapi.co/api/v2/pokemon');
+        httpHelper.url = '${baseUrl}pokemon';
+        return httpHelper.get();
       });
 
       when(mockPokemonRepository.pokemons()).thenAnswer((_) async {
-        try {
-          Response res = await mockPokemonDatasource.pokemons();
+        HttpHelper res = await mockPokemonDatasource.pokemons();
 
-          PokemonResponseModel pokemonResponseModel =
-              PokemonResponseModel.fromJson(res.data);
-
-          return Right(pokemonResponseModel.results!);
-        } catch (e) {
+        if (res.hasExcepion()) {
           return Left(FailGetPokemon(message: ''));
         }
+
+        PokemonResponseModel pokemonResponseModel =
+            PokemonResponseModel.fromJson(res.getData());
+
+        return Right(pokemonResponseModel.results!);
       });
 
       Either<FailGetPokemon, List<Pokemon>> res =
@@ -44,21 +46,27 @@ Future<void> main() async {
       expect(res, isA<Right>());
     });
 
-    test('test dto [PokemonDetail]', () async {
+    test('test dto and http request [PokemonDetail]', () async {
       when(mockPokemonDatasource.pokemon()).thenAnswer((_) async {
-        return Dio().get('https://pokeapi.co/api/v2/pokemon');
+        httpHelper.url = '${baseUrl}pokemon';
+        return httpHelper.get();
       });
 
       when(mockPokemonRepository.pokemon()).thenAnswer((_) async {
-        try {
-          Response res = await mockPokemonDatasource.pokemon();
+        // try {
 
-          PokemonDetail pokemonResponseModel = PokemonDetail.fromJson(res.data);
+        HttpHelper res = await mockPokemonDatasource.pokemon();
 
-          return Right(pokemonResponseModel);
-        } catch (e) {
+        if (res.hasExcepion()) {
           return Left(FailGetPokemon(message: ''));
         }
+
+        PokemonDetail pokemonResponseModel =
+            PokemonDetail.fromJson(res.getData());
+
+        return Right(pokemonResponseModel);
+        // } catch (e) {
+        //   return Left(FailGetPokemon(message: ''));
       });
 
       Either<FailGetPokemon, List<Pokemon>> res =

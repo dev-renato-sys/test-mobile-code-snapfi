@@ -6,7 +6,6 @@ A new Flutter project.
 ## to install flutter follow this link https://docs.flutter.dev/get-started/install
 ### another way to run flutter would be on debug mode
 
-
 #### getting dependencies
 
 flutter pub get

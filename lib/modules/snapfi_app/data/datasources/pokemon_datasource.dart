@@ -1,7 +1,7 @@
-import 'package:dio/dio.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
 
 abstract class PokemonDatasource {
-  Future<Response> pokemons({ int? limit });
+  Future<HttpHelper> pokemons({int? limit});
 
-  Future<Response> pokemon({ String? filter });
+  Future<HttpHelper> pokemon({String? filter});
 }
