@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemon_detail_dto.dart';
 
 class PokemonAbout extends StatelessWidget {
