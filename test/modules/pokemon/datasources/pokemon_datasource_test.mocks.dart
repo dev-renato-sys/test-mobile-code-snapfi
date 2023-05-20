@@ -5,10 +5,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:dio/dio.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:snapfi_app/modules/snapfi_app/data/datasources/pokemon_datasource.dart'
     as _i3;
+import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart' as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -21,8 +21,8 @@ import 'package:snapfi_app/modules/snapfi_app/data/datasources/pokemon_datasourc
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeResponse_0<T> extends _i1.SmartFake implements _i2.Response<T> {
-  _FakeResponse_0(
+class _FakeHttpHelper_0 extends _i1.SmartFake implements _i2.HttpHelper {
+  _FakeHttpHelper_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -36,15 +36,13 @@ class _FakeResponse_0<T> extends _i1.SmartFake implements _i2.Response<T> {
 /// See the documentation for Mockito's code generation for more information.
 class MockPokemonDatasource extends _i1.Mock implements _i3.PokemonDatasource {
   @override
-  _i4.Future<_i2.Response<dynamic>> pokemons({int? limit}) =>
-      (super.noSuchMethod(
+  _i4.Future<_i2.HttpHelper> pokemons({int? limit}) => (super.noSuchMethod(
         Invocation.method(
           #pokemons,
           [],
           {#limit: limit},
         ),
-        returnValue:
-            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
+        returnValue: _i4.Future<_i2.HttpHelper>.value(_FakeHttpHelper_0(
           this,
           Invocation.method(
             #pokemons,
@@ -53,7 +51,7 @@ class MockPokemonDatasource extends _i1.Mock implements _i3.PokemonDatasource {
           ),
         )),
         returnValueForMissingStub:
-            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
+            _i4.Future<_i2.HttpHelper>.value(_FakeHttpHelper_0(
           this,
           Invocation.method(
             #pokemons,
@@ -61,17 +59,15 @@ class MockPokemonDatasource extends _i1.Mock implements _i3.PokemonDatasource {
             {#limit: limit},
           ),
         )),
-      ) as _i4.Future<_i2.Response<dynamic>>);
+      ) as _i4.Future<_i2.HttpHelper>);
   @override
-  _i4.Future<_i2.Response<dynamic>> pokemon({String? filter}) =>
-      (super.noSuchMethod(
+  _i4.Future<_i2.HttpHelper> pokemon({String? filter}) => (super.noSuchMethod(
         Invocation.method(
           #pokemon,
           [],
           {#filter: filter},
         ),
-        returnValue:
-            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
+        returnValue: _i4.Future<_i2.HttpHelper>.value(_FakeHttpHelper_0(
           this,
           Invocation.method(
             #pokemon,
@@ -80,7 +76,7 @@ class MockPokemonDatasource extends _i1.Mock implements _i3.PokemonDatasource {
           ),
         )),
         returnValueForMissingStub:
-            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_0<dynamic>(
+            _i4.Future<_i2.HttpHelper>.value(_FakeHttpHelper_0(
           this,
           Invocation.method(
             #pokemon,
@@ -88,5 +84,5 @@ class MockPokemonDatasource extends _i1.Mock implements _i3.PokemonDatasource {
             {#filter: filter},
           ),
         )),
-      ) as _i4.Future<_i2.Response<dynamic>>);
+      ) as _i4.Future<_i2.HttpHelper>);
 }
