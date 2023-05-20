@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemons_dto.dart';
+import 'package:snapfi_app/src/components/inputs/search_bar.dart';
 import 'package:snapfi_app/src/components/loading_pokemons/loading_pokemons.dart';
 import 'package:snapfi_app/src/components/pokemon_card.dart';
 import './injection_container.dart' as ic;
@@ -104,34 +105,9 @@ class _LoadHomePageState extends State<LoadHomePage> {
                     Row(
                       children: [
                         Flexible(
-                            child: TextField(
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          controller: searchController,
-                          onChanged: (String? value) {
-                            setState(() {});
-                          },
-                          onSubmitted: (String? value) {
-                            pokemonBloc.add(SearchForPokemon(name: value));
-                          },
-                          decoration: InputDecoration(
-                              hintText: 'Search',
-                              suffixIcon: searchController.text.isEmpty
-                                  ? null
-                                  : IconButton(
-                                      onPressed: () => {
-                                            pokemonBloc.add(PokemonFetchList()),
-                                            setState(() {
-                                              searchController.clear();
-                                            })
-                                          },
-                                      icon: const Icon(Icons.remove_circle)),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(40.0)),
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: primaryColor,
-                              )),
-                        )),
+                            child: SearchBar(
+                                searchController: searchController,
+                                pokemonBloc: pokemonBloc)),
                         const SizedBox(
                           width: 10.0,
                         ),
