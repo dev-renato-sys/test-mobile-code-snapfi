@@ -53,8 +53,6 @@ Future<void> main() async {
       });
 
       when(mockPokemonRepository.pokemon()).thenAnswer((_) async {
-        // try {
-
         HttpHelper res = await mockPokemonDatasource.pokemon();
 
         if (res.hasExcepion()) {
@@ -65,8 +63,6 @@ Future<void> main() async {
             PokemonDetail.fromJson(res.getData());
 
         return Right(pokemonResponseModel);
-        // } catch (e) {
-        //   return Left(FailGetPokemon(message: ''));
       });
 
       Either<FailGetPokemon, List<Pokemon>> res =
