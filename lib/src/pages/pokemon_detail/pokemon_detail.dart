@@ -179,7 +179,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                         ))
                       ]));
                 default:
-                  return const Text('Not mapped');
+                  return const Text('Not mapped!');
               }
             }));
   }
