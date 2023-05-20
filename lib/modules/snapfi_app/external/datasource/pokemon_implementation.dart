@@ -4,11 +4,10 @@ import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
 import '../../data/datasources/pokemon_datasource.dart';
 
 class PokemonApiDataSource implements PokemonDatasource {
-  final Dio dio;
   final String baseUrl = 'https://pokeapi.co/api/v2/';
   late HttpHelper httpHelper = HttpHelper(url: '');
 
-  PokemonApiDataSource({required this.dio});
+  PokemonApiDataSource();
 
   @override
   Future<HttpHelper> pokemons({int? limit = 20}) async {

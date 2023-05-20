@@ -22,7 +22,7 @@ Future<void> init() async {
       () => GetPokemonUsecase(pokemonRepositoryImplementation: sl()));
 
   sl.registerLazySingleton<PokemonApiDataSource>(
-      () => PokemonApiDataSource(dio: sl()));
+      () => PokemonApiDataSource());
 
   sl.registerLazySingleton(() => Dio());
 }
