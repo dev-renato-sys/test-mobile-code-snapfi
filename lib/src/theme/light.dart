@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:snapfi_app/helpers/hex_color.dart';
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:quali_app/helpers/hex_color.dart';
@@ -31,21 +32,21 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
         borderSide: BorderSide(color: HexColor.fromHex('#e8edf2')),
         borderRadius: const BorderRadius.all(Radius.circular(70.0))),
   ),
-  textTheme: const TextTheme(
-      bodySmall: TextStyle(fontSize: 8.0, color: Colors.black),
-      bodyMedium: TextStyle(fontSize: 12.0, color: Colors.black),
-      bodyLarge: TextStyle(fontSize: 16.0, color: Colors.black),
-      headlineSmall: TextStyle(
+  textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+      bodySmall: const TextStyle(fontSize: 8.0, color: Colors.black),
+      bodyMedium: const TextStyle(fontSize: 12.0, color: Colors.black),
+      bodyLarge: const TextStyle(fontSize: 16.0, color: Colors.black),
+      headlineSmall: const TextStyle(
           fontSize: 12.0, fontWeight: FontWeight.bold, color: Colors.black),
-      headlineMedium: TextStyle(
+      headlineMedium: const TextStyle(
           fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),
-      titleLarge: TextStyle(
+      titleLarge: const TextStyle(
           fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.white),
-      labelLarge: TextStyle(
+      labelLarge: const TextStyle(
           fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.white),
-      labelMedium: TextStyle(
+      labelMedium: const TextStyle(
           fontSize: 12.0, fontWeight: FontWeight.bold, color: Colors.white),
-      labelSmall: TextStyle(
+      labelSmall: const TextStyle(
           fontSize: 10.0, fontWeight: FontWeight.bold, color: Colors.white)),
   // .apply(bodyColor: Colors.black, displayColor: Colors.black),
   primaryIconTheme: const IconThemeData(color: Colors.white),

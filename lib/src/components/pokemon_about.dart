@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemon_detail_dto.dart';
 
 class PokemonAbout extends StatelessWidget {
@@ -23,7 +24,7 @@ class PokemonAbout extends StatelessWidget {
             style: TextStyle(
                 color: pokemonDetail.types![0].type!.getColorBasedOnAbility(),
                 fontSize: 16.0,
-                fontWeight: FontWeight.bold)),
+                fontWeight: FontWeight.w900)),
         const SizedBox(
           height: 20.0,
         ),
@@ -50,13 +51,8 @@ class PokemonAbout extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                // const Icon(
-                                //   Icons.line_weight,
-                                //   color: Colors.black,
-                                // ),
-                                const SizedBox(
-                                  width: 5.0,
-                                ),
+                                Image.asset('assets/icons/weight.png', width: 16,),
+                                const SizedBox(width: 5.0,),
                                 Text('${pokemonDetail.getDoubleWeight()} kg')
                               ]),
                         )),
@@ -79,10 +75,8 @@ class PokemonAbout extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                // const Icon(
-                                //   Icons.height_outlined,
-                                //   color: Colors.black,
-                                // ),
+                                Image.asset('assets/icons/straighten.png', width: 16,),
+                                const SizedBox(width: 5.0,),
                                 Text('${pokemonDetail.getDoubleHeight()} m')
                               ]),
                         )),
@@ -103,8 +97,8 @@ class PokemonAbout extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            ...pokemonDetail.types!.map((e) =>
-                                Text(e.type!.getNameUpperCaseFirstLetter())),
+                            ...pokemonDetail.abilities!.map((e) =>
+                                Text(e.ability!.getNameUpperCaseFirstLetter())),
                           ],
                         )),
                         Text(

@@ -19,7 +19,7 @@ class PokemonBaseStats extends StatelessWidget {
               style: TextStyle(
                   color: pokemonDetail.types![0].type!.getColorBasedOnAbility(),
                   fontSize: 16.0,
-                  fontWeight: FontWeight.bold)),
+                  fontWeight: FontWeight.w900)),
           const SizedBox(
             height: 20.0,
           ),
@@ -27,7 +27,7 @@ class PokemonBaseStats extends StatelessWidget {
             columnWidths: const <int, TableColumnWidth>{
               0: FlexColumnWidth(),
               1: FlexColumnWidth(1),
-              2: FlexColumnWidth(7),
+              2: FlexColumnWidth(6),
             },
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: <TableRow>[
@@ -37,7 +37,7 @@ class PokemonBaseStats extends StatelessWidget {
                         decoration: const BoxDecoration(
                           border: Border(
                               right: BorderSide(
-                                  width: 1.0,
+                                  width: 1,
                                   color: Colors
                                       .grey)), // Define a borda direita para a célula interna
                         ),
@@ -51,8 +51,9 @@ class PokemonBaseStats extends StatelessWidget {
                                       .toUpperCase() ??
                                   'N/A',
                               style: TextStyle(
+                                  fontSize: 12,
                                   color: pokemonColor,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.w900),
                             ),
                           ),
                         ),
