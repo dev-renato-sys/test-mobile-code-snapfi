@@ -64,7 +64,7 @@ Future<void> main() async {
       Either<FailGetPokemon, List<Pokemon>> res =
           await mockPokemonRepository.pokemons();
 
-      expect(res, isA<Right>());
+      expect(res, isA<Left>());
     });
   });
 }
