@@ -9,6 +9,7 @@ import 'package:snapfi_app/src/components/pokemon_about.dart';
 import 'package:snapfi_app/src/components/pokemon_base_stats.dart';
 import 'package:snapfi_app/src/components/pokemon_detail_skeleton.dart';
 import 'package:snapfi_app/src/components/pokemon_type.dart';
+import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_detail_error.dart';
 import 'package:snapfi_app/src/theme/light.dart';
 
 class PokemonDetailPage extends StatefulWidget {
@@ -68,33 +69,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                     ),
                   );
                 case PokemonErrorState:
-                  return Scaffold(
-                    body: Center(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/images/pokebola.png',
-                            width: 100,
-                            color: Colors.grey[300],
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          const Text(
-                            'Pokemon não encontrado.',
-                          ),
-                          TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text(
-                                'Voltar',
-                                style: TextStyle(color: Colors.black),
-                              ))
-                        ],
-                      ),
-                    ),
-                  );
+                  return const PokemonDetailError();
                 case PokemonDetailState:
                   PokemonDetail pokemonDetail = state.props[0] as PokemonDetail;
 
@@ -135,31 +110,41 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                             Align(
                               alignment: Alignment.bottomCenter,
                               child: Card(
-                                child: SizedBox(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey[300]!,
+                                      ),
+                                      const BoxShadow(
+                                        color: Colors.white,
+                                        spreadRadius: -1.0,
+                                        blurRadius: 1.0,
+                                      ),
+                                    ],
+                                  ),
                                   width: phoneWidth,
                                   height: phoneWidth > phoneHeight
-                                      ? phoneHeight / 2.7
+                                      ? phoneHeight / 4.5
                                       : phoneHeight / 1.85,
-                                  child: SingleChildScrollView(
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 60.0,
-                                      ),
-                                      child: Column(children: [
-                                        PokemonType(
-                                            pokemonDetail: pokemonDetail),
-                                        const SizedBox(
-                                          height: 20.0,
-                                        ),
-                                        PokemonAbout(
-                                            pokemonDetail: pokemonDetail),
-                                        const SizedBox(
-                                          height: 20.0,
-                                        ),
-                                        PokemonBaseStats(
-                                            pokemonDetail: pokemonDetail)
-                                      ]),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 60.0,
                                     ),
+                                    child: Column(children: [
+                                      PokemonType(pokemonDetail: pokemonDetail),
+                                      const SizedBox(
+                                        height: 20.0,
+                                      ),
+                                      PokemonAbout(
+                                          pokemonDetail: pokemonDetail),
+                                      const SizedBox(
+                                        height: 20.0,
+                                      ),
+                                      PokemonBaseStats(
+                                          pokemonDetail: pokemonDetail)
+                                    ]),
                                   ),
                                 ),
                               ),

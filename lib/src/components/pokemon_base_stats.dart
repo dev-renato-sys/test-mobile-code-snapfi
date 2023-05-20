@@ -27,22 +27,22 @@ class PokemonBaseStats extends StatelessWidget {
             columnWidths: const <int, TableColumnWidth>{
               0: FlexColumnWidth(),
               1: FlexColumnWidth(1),
-              2: FlexColumnWidth(6),
+              2: FlexColumnWidth(5),
             },
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: <TableRow>[
               ...pokemonDetail.stats!.map((Stats e) => TableRow(
                     children: <Widget>[
                       Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           border: Border(
                               right: BorderSide(
                                   width: 1,
                                   color: Colors
-                                      .grey)), // Define a borda direita para a célula interna
+                                      .grey[400]!)), // Define a borda direita para a célula interna
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 5),
+                          padding: const EdgeInsets.only(right: 10),
                           child: Align(
                             alignment: Alignment.centerRight,
                             child: Text(
@@ -58,7 +58,7 @@ class PokemonBaseStats extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Center(child: Text(e.getBaseStat())),
+                      Center(child: Text(e.getBaseStat(),)),
                       LinearPercentIndicator(
                           percent: e.baseStat! / 200,
                           progressColor: pokemonColor,
