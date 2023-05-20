@@ -1,4 +1,4 @@
-# snapfi_app
+# SNAPFI_APP
 
 A new Flutter project.
 
