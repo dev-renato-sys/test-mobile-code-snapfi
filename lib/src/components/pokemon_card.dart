@@ -44,7 +44,7 @@ class PokemonCard extends StatelessWidget {
                   const Spacer(),
                   Text(
                     pokemon.getIdWithHashtag(),
-                    style: TextStyle(color: Colors.grey[400]),
+                    style: TextStyle(color: Colors.grey[600], fontSize: 9.0),
                   )
                 ],
               ),
@@ -55,7 +55,7 @@ class PokemonCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: const BorderRadius.all(Radius.circular(10))),
-                height: phoneWidth > phoneHeight ? 100 : 50,
+                height: phoneWidth > phoneHeight ? 100 : 40,
                 width: double.infinity,
                 child: Center(
                     child: Padding(
@@ -74,8 +74,8 @@ class PokemonCard extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: pokemon.getPokemonImage(
-                    width: phoneWidth > phoneHeight ? 100 : phoneWidth / 5,
-                    height: phoneWidth > phoneHeight ? 100 : 80),
+                    width: phoneWidth > phoneHeight ? 100 : phoneWidth / 6,
+                    height: phoneWidth > phoneHeight ? 100 : 70),
               ),
             ),
           ],

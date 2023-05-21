@@ -16,12 +16,11 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
 
   PokemonBloc(
       {required this.getPokemonsUsecase, required this.getPokemonUsecase})
-      : super(const PokemonLoadingState(message: 'Procurando por pokemons..')) {
+      : super(const PokemonLoadingState(message: 'Searching for pokemons..')) {
     on<SetLoadingPokemon>((event, emit) {
       emit(PokemonLoadingState(message: event.message));
     });
     on<PokemonFetchList>((event, emit) async {
-      // emit(const PokemonLoadingState(message: 'Procurando por pokemons..'));
       Either<FailGetPokemon, List<Pokemon>> pokemons =
           await getPokemonsUsecase.call(limit: event.limit);
 
@@ -33,17 +32,17 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
     });
     on<SearchForPokemon>(
       (event, emit) async {
-        emit(const PokemonLoadingState(message: 'Procurando por pokemons..'));
+        emit(const PokemonLoadingState(message: 'Searching for pokemons..'));
 
         Either<FailGetPokemon, PokemonDetail> pokemon =
             await getPokemonUsecase.call(name: event.name, id: event.id);
 
         pokemon.fold((FailGetPokemon exception) {
           if (exception.statusCode == 403) {
-            emit(const PokemonErrorState(message: 'Pokemon não encontrado'));
+            emit(const PokemonErrorState(message: 'Pokemon not found'));
           } else {
             emit(const PokemonErrorState(
-                message: 'Ocorreu algo de errado com o servidor'));
+                message: 'Something went wrong with our server side'));
           }
         },
             (PokemonDetail pokemonDetail) => emit(PokemonLoadedState(
@@ -61,10 +60,10 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
             await getPokemonUsecase.call(id: event.idPokemon.toString());
         pokemonDetail.fold((FailGetPokemon exception) {
           if (exception.statusCode == 403) {
-            emit(const PokemonErrorState(message: 'Pokemon não encontrado'));
+            emit(const PokemonErrorState(message: 'Pokemon not found'));
           } else {
             emit(const PokemonErrorState(
-                message: 'Ocorreu algo de errado com o servidor'));
+                message: 'Something went wrong with our server side'));
           }
         },
             (PokemonDetail pokemonDetail) =>

@@ -20,7 +20,7 @@ class LoadingPokemons extends StatelessWidget {
           ),
           Text(
             text,
-            style: Theme.of(context).textTheme.bodyMedium,
+            // style: const TextStyle(color: Colors.white),
           )
         ],
       ),

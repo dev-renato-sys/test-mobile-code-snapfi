@@ -7,6 +7,7 @@ import 'package:snapfi_app/src/bloc/pokemon/state.dart';
 import 'package:snapfi_app/src/components/inputs/search_bar.dart';
 import 'package:snapfi_app/src/components/loading_pokemons/loading_pokemons.dart';
 import 'package:snapfi_app/src/components/pokemon_card.dart';
+import 'package:snapfi_app/src/components/pokemon_pokedex_card.dart';
 import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_error.dart';
 import 'package:snapfi_app/src/theme/light.dart';
 
@@ -94,22 +95,24 @@ class _LoadHomePageState extends State<PokemonHomePage> {
                   ])),
             ),
             Expanded(
-              child: BlocBuilder<PokemonBloc, PokemonState>(
-                  bloc: pokemonBloc,
-                  builder: ((context, state) {
-                    switch (state.runtimeType) {
-                      case PokemonLoadingState:
-                        return const LoadingPokemons(
-                            'Procurando por pokemons..');
-                      case PokemonErrorState:
-                        return const PokemonErrorComponent(withGoBack: false,);
-                      case PokemonLoadedState:
-                        List<Pokemon> listPokemon =
-                            state.props as List<Pokemon>;
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15.0, horizontal: 10.0),
-                          child: GridView.count(
+              child: Container(
+                color: primaryColor,
+                child: BlocBuilder<PokemonBloc, PokemonState>(
+                    bloc: pokemonBloc,
+                    builder: ((context, state) {
+                      switch (state.runtimeType) {
+                        case PokemonLoadingState:
+                          return const PokemonPokedexSkeleton(
+                              child: LoadingPokemons('Loading..'));
+                        case PokemonErrorState:
+                          return const PokemonErrorComponent(
+                            withGoBack: false,
+                          );
+                        case PokemonLoadedState:
+                          List<Pokemon> listPokemon =
+                              state.props as List<Pokemon>;
+                          return PokemonPokedexSkeleton(
+                              child: GridView.count(
                             controller: listPokemonController
                               ..addListener(() =>
                                   onOutsideOfView(pokemonBloc: pokemonBloc)),
@@ -121,12 +124,12 @@ class _LoadHomePageState extends State<PokemonHomePage> {
                                     // pokemonBloc: pokemonBloc,
                                   ))
                             ],
-                          ),
-                        );
-                      default:
-                        return const Text('Not mapped');
-                    }
-                  })),
+                          ));
+                        default:
+                          return const Text('Error not mapped');
+                      }
+                    })),
+              ),
             )
           ],
         ),

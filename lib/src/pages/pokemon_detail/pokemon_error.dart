@@ -20,9 +20,10 @@ class PokemonErrorComponent extends StatelessWidget {
             const SizedBox(
               height: 20.0,
             ),
-            const Text(
-              'Pokemon não encontrado.',
-            ),
+            const Padding(padding: EdgeInsets.symmetric(horizontal: 80.0), child: Text(
+              'Pokemon not founded, try correcting pokemon name on your search.',
+              textAlign: TextAlign.center,
+            ),),
             if (withGoBack)
               TextButton(
                   onPressed: () => Navigator.of(context).pop(),
