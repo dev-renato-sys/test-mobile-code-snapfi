@@ -62,6 +62,8 @@ class HttpHelper {
       'delete': () => Dio().delete(url, data: data, options: headers),
     };
 
+    clearExceptions();
+
     try {
       response = await methods[method]?.call();
     } on DioError catch (e) {
@@ -75,6 +77,11 @@ class HttpHelper {
 
   bool hasExcepion() {
     return dioError != null || exception != null;
+  }
+
+  void clearExceptions() {
+    dioError = null;
+    exception = null;
   }
 
   ExceptionsInfos getExceptionMessage() {

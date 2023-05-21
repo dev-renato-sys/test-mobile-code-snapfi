@@ -14,7 +14,7 @@ class SearchBarApp extends StatefulWidget {
 }
 
 class _SearchBarAppState extends State<SearchBarApp> {
-  late String value;
+  late String value = '';
 
   void clearSearchBar() => {
         widget.pokemonBloc.add(PokemonFetchList()),

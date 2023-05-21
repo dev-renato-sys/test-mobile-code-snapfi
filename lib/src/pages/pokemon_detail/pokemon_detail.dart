@@ -9,7 +9,7 @@ import 'package:snapfi_app/src/components/pokemon_about.dart';
 import 'package:snapfi_app/src/components/pokemon_base_stats.dart';
 import 'package:snapfi_app/src/components/pokemon_detail_skeleton.dart';
 import 'package:snapfi_app/src/components/pokemon_type.dart';
-import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_detail_error.dart';
+import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_error.dart';
 import 'package:snapfi_app/src/theme/light.dart';
 
 class PokemonDetailPage extends StatefulWidget {
@@ -69,7 +69,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                     ),
                   );
                 case PokemonErrorState:
-                  return const PokemonDetailError();
+                  return const PokemonErrorComponent();
                 case PokemonDetailState:
                   PokemonDetail pokemonDetail = state.props[0] as PokemonDetail;
 

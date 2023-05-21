@@ -7,6 +7,7 @@ import 'package:snapfi_app/src/bloc/pokemon/state.dart';
 import 'package:snapfi_app/src/components/inputs/search_bar.dart';
 import 'package:snapfi_app/src/components/loading_pokemons/loading_pokemons.dart';
 import 'package:snapfi_app/src/components/pokemon_card.dart';
+import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_error.dart';
 import 'package:snapfi_app/src/theme/light.dart';
 
 class PokemonHomePage extends StatefulWidget {
@@ -101,9 +102,7 @@ class _LoadHomePageState extends State<PokemonHomePage> {
                         return const LoadingPokemons(
                             'Procurando por pokemons..');
                       case PokemonErrorState:
-                        return Center(
-                          child: Text(state.props[0].toString()),
-                        );
+                        return const PokemonErrorComponent(withGoBack: false,);
                       case PokemonLoadedState:
                         List<Pokemon> listPokemon =
                             state.props as List<Pokemon>;
