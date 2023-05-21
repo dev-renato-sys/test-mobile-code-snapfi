@@ -59,7 +59,7 @@ class PokemonCard extends StatelessWidget {
                 width: double.infinity,
                 child: Center(
                     child: Padding(
-                  padding: const EdgeInsets.only(top: 25),
+                  padding: const EdgeInsets.only(top: 15),
                   child: Text(
                     pokemon.getNameUpperCaseFirstLetter(),
                   ),
