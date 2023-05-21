@@ -9,7 +9,7 @@ import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemons_dto.dart'
 import 'package:snapfi_app/modules/snapfi_app/domain/errors/errors.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/repositories/pokemon_repository.dart';
 import '../datasources/pokemon_datasource_test.mocks.dart';
-import 'pokemon_repositoy_test.mocks.dart';
+import 'pokemon_repository_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<PokemonRepository>()])
 Future<void> main() async {
