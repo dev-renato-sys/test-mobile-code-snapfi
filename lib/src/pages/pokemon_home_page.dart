@@ -73,7 +73,7 @@ class _LoadHomePageState extends State<PokemonHomePage> {
                     Row(
                       children: [
                         Flexible(
-                            child: SearchBar(
+                            child: SearchBarApp(
                                 searchController: searchController,
                                 pokemonBloc: pokemonBloc)),
                         const SizedBox(

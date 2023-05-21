@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemons_dto.dart';
-import 'package:snapfi_app/src/components/inputs/search_bar.dart';
-import 'package:snapfi_app/src/components/loading_pokemons/loading_pokemons.dart';
-import 'package:snapfi_app/src/components/pokemon_card.dart';
 import 'package:snapfi_app/src/pages/pokemon_home_page.dart';
 import './injection_container.dart' as ic;
 import 'src/bloc/pokemon/bloc.dart';
 import 'src/bloc/pokemon/event.dart';
-import 'src/bloc/pokemon/state.dart';
 import 'src/routes/index.dart';
 import 'src/theme/dark.dart';
 import 'src/theme/light.dart';
