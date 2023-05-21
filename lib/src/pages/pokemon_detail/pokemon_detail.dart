@@ -101,7 +101,9 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                 widget.pokemonList[_index].getIdWithHashtag(),
                                 style: Theme.of(context).textTheme.labelLarge,
                               ),
-                              const SizedBox(width: 25.0,)
+                              const SizedBox(
+                                width: 25.0,
+                              )
                             ],
                           ),
                         ),
@@ -162,7 +164,10 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                     IconButton(
                                         onPressed: () => onPressPreviousPokemon(
                                             pokemonBloc: pokemonBloc),
-                                        icon: const Icon(Icons.arrow_back_ios, size: 16,)),
+                                        icon: const Icon(
+                                          Icons.arrow_back_ios,
+                                          size: 16,
+                                        )),
                                   const Spacer(),
                                   widget.pokemonList[_index]
                                       .getPokemonImage(width: 240, height: 260),
@@ -171,8 +176,9 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                     IconButton(
                                         onPressed: () => onPressNextPokemon(
                                             pokemonBloc: pokemonBloc),
-                                        icon:
-                                            const Icon(Icons.arrow_forward_ios, size: 16))
+                                        icon: const Icon(
+                                            Icons.arrow_forward_ios,
+                                            size: 16))
                                 ],
                               ),
                             ),
