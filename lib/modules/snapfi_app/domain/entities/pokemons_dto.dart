@@ -19,12 +19,6 @@ class Pokemon {
       width: width,
       height: height,
       fit: BoxFit.fill,
-      // loadingBuilder: (context, child, loadingProgress) {
-      //   return Icon(
-      //     Icons.error,
-      //     color: primaryColor,
-      //   );
-      // },
     );
   }
 
