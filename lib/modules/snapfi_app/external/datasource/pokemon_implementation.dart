@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
 
 import '../../data/datasources/pokemon_datasource.dart';

@@ -328,37 +328,25 @@ class VersionGroupDetails {
 
 class Sprites {
   String? backDefault;
-  Null? backFemale;
   String? backShiny;
-  Null? backShinyFemale;
   String? frontDefault;
-  Null? frontFemale;
   String? frontShiny;
-  Null? frontShinyFemale;
   Other? other;
   Versions? versions;
 
   Sprites(
       {this.backDefault,
-      this.backFemale,
       this.backShiny,
-      this.backShinyFemale,
       this.frontDefault,
-      this.frontFemale,
       this.frontShiny,
-      this.frontShinyFemale,
       this.other,
       this.versions});
 
   Sprites.fromJson(Map<String, dynamic> json) {
     backDefault = json['back_default'];
-    backFemale = json['back_female'];
     backShiny = json['back_shiny'];
-    backShinyFemale = json['back_shiny_female'];
     frontDefault = json['front_default'];
-    frontFemale = json['front_female'];
     frontShiny = json['front_shiny'];
-    frontShinyFemale = json['front_shiny_female'];
     other = json['other'] != null ? Other.fromJson(json['other']) : null;
     versions =
         json['versions'] != null ? Versions.fromJson(json['versions']) : null;
@@ -367,13 +355,9 @@ class Sprites {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['back_default'] = backDefault;
-    data['back_female'] = backFemale;
     data['back_shiny'] = backShiny;
-    data['back_shiny_female'] = backShinyFemale;
     data['front_default'] = frontDefault;
-    data['front_female'] = frontFemale;
     data['front_shiny'] = frontShiny;
-    data['front_shiny_female'] = frontShinyFemale;
     if (other != null) {
       data['other'] = other!.toJson();
     }
@@ -418,48 +402,35 @@ class Other {
 
 class DreamWorld {
   String? frontDefault;
-  Null? frontFemale;
 
-  DreamWorld({this.frontDefault, this.frontFemale});
+  DreamWorld({this.frontDefault});
 
   DreamWorld.fromJson(Map<String, dynamic> json) {
     frontDefault = json['front_default'];
-    frontFemale = json['front_female'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['front_default'] = frontDefault;
-    data['front_female'] = frontFemale;
     return data;
   }
 }
 
 class Home {
   String? frontDefault;
-  Null? frontFemale;
   String? frontShiny;
-  Null? frontShinyFemale;
 
-  Home(
-      {this.frontDefault,
-      this.frontFemale,
-      this.frontShiny,
-      this.frontShinyFemale});
+  Home({this.frontDefault, this.frontShiny});
 
   Home.fromJson(Map<String, dynamic> json) {
     frontDefault = json['front_default'];
-    frontFemale = json['front_female'];
     frontShiny = json['front_shiny'];
-    frontShinyFemale = json['front_shiny_female'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['front_default'] = frontDefault;
-    data['front_female'] = frontFemale;
     data['front_shiny'] = frontShiny;
-    data['front_shiny_female'] = frontShinyFemale;
     return data;
   }
 }
@@ -824,45 +795,34 @@ class GenerationIv {
 
 class DiamondPearl {
   String? backDefault;
-  Null? backFemale;
   String? backShiny;
-  Null? backShinyFemale;
   String? frontDefault;
-  Null? frontFemale;
   String? frontShiny;
-  Null? frontShinyFemale;
 
-  DiamondPearl(
-      {this.backDefault,
-      this.backFemale,
-      this.backShiny,
-      this.backShinyFemale,
-      this.frontDefault,
-      this.frontFemale,
-      this.frontShiny,
-      this.frontShinyFemale});
+  DiamondPearl({
+    this.backDefault,
+    this.backShiny,
+    this.frontDefault,
+    this.frontShiny,
+  });
 
   DiamondPearl.fromJson(Map<String, dynamic> json) {
     backDefault = json['back_default'];
-    backFemale = json['back_female'];
     backShiny = json['back_shiny'];
-    backShinyFemale = json['back_shiny_female'];
     frontDefault = json['front_default'];
-    frontFemale = json['front_female'];
+
     frontShiny = json['front_shiny'];
-    frontShinyFemale = json['front_shiny_female'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['back_default'] = backDefault;
-    data['back_female'] = backFemale;
+
     data['back_shiny'] = backShiny;
-    data['back_shiny_female'] = backShinyFemale;
+
     data['front_default'] = frontDefault;
-    data['front_female'] = frontFemale;
+
     data['front_shiny'] = frontShiny;
-    data['front_shiny_female'] = frontShinyFemale;
     return data;
   }
 }
@@ -890,37 +850,28 @@ class GenerationV {
 class BlackWhite {
   DiamondPearl? animated;
   String? backDefault;
-  Null? backFemale;
   String? backShiny;
-  Null? backShinyFemale;
-  String? frontDefault;
-  Null? frontFemale;
-  String? frontShiny;
-  Null? frontShinyFemale;
 
-  BlackWhite(
-      {this.animated,
-      this.backDefault,
-      this.backFemale,
-      this.backShiny,
-      this.backShinyFemale,
-      this.frontDefault,
-      this.frontFemale,
-      this.frontShiny,
-      this.frontShinyFemale});
+  String? frontDefault;
+
+  String? frontShiny;
+
+  BlackWhite({
+    this.animated,
+    this.backDefault,
+    this.backShiny,
+    this.frontDefault,
+    this.frontShiny,
+  });
 
   BlackWhite.fromJson(Map<String, dynamic> json) {
     animated = json['animated'] != null
         ? DiamondPearl.fromJson(json['animated'])
         : null;
     backDefault = json['back_default'];
-    backFemale = json['back_female'];
     backShiny = json['back_shiny'];
-    backShinyFemale = json['back_shiny_female'];
     frontDefault = json['front_default'];
-    frontFemale = json['front_female'];
     frontShiny = json['front_shiny'];
-    frontShinyFemale = json['front_shiny_female'];
   }
 
   Map<String, dynamic> toJson() {
@@ -929,13 +880,9 @@ class BlackWhite {
       data['animated'] = animated!.toJson();
     }
     data['back_default'] = backDefault;
-    data['back_female'] = backFemale;
     data['back_shiny'] = backShiny;
-    data['back_shiny_female'] = backShinyFemale;
     data['front_default'] = frontDefault;
-    data['front_female'] = frontFemale;
     data['front_shiny'] = frontShiny;
-    data['front_shiny_female'] = frontShinyFemale;
     return data;
   }
 }

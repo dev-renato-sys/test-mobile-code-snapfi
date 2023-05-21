@@ -3,18 +3,18 @@ import 'package:snapfi_app/src/bloc/pokemon/bloc.dart';
 import 'package:snapfi_app/src/bloc/pokemon/event.dart';
 import 'package:snapfi_app/src/theme/light.dart';
 
-class SearchBar extends StatefulWidget {
+class SearchBarApp extends StatefulWidget {
   final TextEditingController searchController;
   final PokemonBloc pokemonBloc;
-  const SearchBar(
+  const SearchBarApp(
       {super.key, required this.searchController, required this.pokemonBloc});
 
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<SearchBarApp> createState() => _SearchBarAppState();
 }
 
-class _SearchBarState extends State<SearchBar> {
-  late String value;
+class _SearchBarAppState extends State<SearchBarApp> {
+  late String value = '';
 
   void clearSearchBar() => {
         widget.pokemonBloc.add(PokemonFetchList()),

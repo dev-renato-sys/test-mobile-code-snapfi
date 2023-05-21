@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class PokemonDetailError extends StatelessWidget {
-  const PokemonDetailError({super.key});
+class PokemonErrorComponent extends StatelessWidget {
+  final bool withGoBack;
+  const PokemonErrorComponent({super.key, this.withGoBack = true});
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +23,13 @@ class PokemonDetailError extends StatelessWidget {
             const Text(
               'Pokemon não encontrado.',
             ),
-            TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text(
-                  'Voltar',
-                  style: TextStyle(color: Colors.black),
-                ))
+            if (withGoBack)
+              TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text(
+                    'Voltar',
+                    style: TextStyle(color: Colors.black),
+                  ))
           ],
         ),
       ),
