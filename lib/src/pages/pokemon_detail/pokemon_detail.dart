@@ -77,8 +77,8 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                       pokemonDetail: pokemonDetail,
                       child: Column(children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 20),
+                          padding: const EdgeInsets.only(
+                              right: 12.0, left: 12.0, top: 24.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -101,6 +101,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                 widget.pokemonList[_index].getIdWithHashtag(),
                                 style: Theme.of(context).textTheme.labelLarge,
                               ),
+                              const SizedBox(width: 25.0,)
                             ],
                           ),
                         ),
@@ -161,17 +162,17 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                     IconButton(
                                         onPressed: () => onPressPreviousPokemon(
                                             pokemonBloc: pokemonBloc),
-                                        icon: const Icon(Icons.arrow_back_ios)),
+                                        icon: const Icon(Icons.arrow_back_ios, size: 16,)),
                                   const Spacer(),
                                   widget.pokemonList[_index]
-                                      .getPokemonImage(width: 220, height: 250),
+                                      .getPokemonImage(width: 240, height: 260),
                                   const Spacer(),
                                   if (widget.pokemonList.length - 1 != _index)
                                     IconButton(
                                         onPressed: () => onPressNextPokemon(
                                             pokemonBloc: pokemonBloc),
                                         icon:
-                                            const Icon(Icons.arrow_forward_ios))
+                                            const Icon(Icons.arrow_forward_ios, size: 16))
                                 ],
                               ),
                             ),
