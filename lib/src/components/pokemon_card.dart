@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon.dart';
 import 'package:snapfi_app/src/bloc/pokemon/bloc.dart';
 import 'package:snapfi_app/src/components/pokemon_image.dart';
-import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_detail.dart';
+import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_detail_page.dart';
 import '../../injection_container.dart' as ic;
 
 class PokemonCard extends StatelessWidget {
