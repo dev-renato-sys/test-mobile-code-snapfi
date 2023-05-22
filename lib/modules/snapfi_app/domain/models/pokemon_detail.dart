@@ -11,7 +11,6 @@ import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail/types
 class PokemonDetail {
   List<Abilities>? abilities;
   int? baseExperience;
-  // List<Forms>? forms;
   List<GameIndices>? gameIndices;
   int? height;
   List<void>? heldItems;
@@ -131,6 +130,6 @@ class PokemonDetail {
   }
 
   double getDoubleWeight() {
-    return height! / 10;
+    return weight! / 10;
   }
 }

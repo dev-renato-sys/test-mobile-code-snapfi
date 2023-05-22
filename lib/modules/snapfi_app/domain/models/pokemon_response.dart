@@ -4,10 +4,8 @@ import 'pokemon.dart';
 
 class PokemonResponse {
   int? count;
-
   String? next;
   String? previous;
-
   List<Pokemon>? results;
 
   PokemonResponse({this.count, this.next, this.previous, this.results});

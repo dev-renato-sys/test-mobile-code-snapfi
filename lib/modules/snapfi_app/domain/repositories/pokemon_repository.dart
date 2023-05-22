@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
-
 import '../models/pokemon.dart';
 import '../errors/errors.dart';
 
