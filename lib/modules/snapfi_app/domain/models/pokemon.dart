@@ -1,8 +1,8 @@
 class Pokemon {
-  String? name;
-  String? url;
+  late String name;
+  late String url;
 
-  Pokemon({this.name, this.url});
+  Pokemon({required this.name, required this.url});
 
   Pokemon.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -10,16 +10,16 @@ class Pokemon {
   }
 
   int getId() {
-    return int.parse(url!.split('pokemon/').last.replaceAll('/', ''));
+    return int.parse(url.split('pokemon/').last.replaceAll('/', ''));
   }
 
   String getNameUpperCaseFirstLetter() {
-    return '${name?.substring(0, 1).toUpperCase()}${name!.substring(1, name!.length)}';
+    return '${name.substring(0, 1).toUpperCase()}${name.substring(1, name.length)}';
   }
 
   String getIdWithHashtag() {
     String valueWithHashtag =
-        '${int.parse(url!.split('pokemon/').last.replaceAll('/', ''))}'
+        '${int.parse(url.split('pokemon/').last.replaceAll('/', ''))}'
             .padLeft(3, '0');
     return '#$valueWithHashtag';
   }

@@ -48,7 +48,7 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
             (PokemonDetail pokemonDetail) => emit(PokemonLoadedState(
                     pokemonList: [
                       Pokemon(
-                          name: pokemonDetail.name,
+                          name: pokemonDetail.name!,
                           url: pokemonDetail.id.toString())
                     ])));
       },

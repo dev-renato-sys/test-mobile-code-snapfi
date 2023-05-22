@@ -174,7 +174,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                   PokemonImage(
                                     imgUrl: dotenv.env["IMG_URL"]!,
                                     pokemon: Pokemon(
-                                        name: pokemonDetail.name,
+                                        name: pokemonDetail.name!,
                                         url: pokemonDetail.id.toString()),
                                     height: 260,
                                     width: 240,

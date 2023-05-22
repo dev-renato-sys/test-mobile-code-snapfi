@@ -8,10 +8,10 @@ import 'dart:async' as _i4;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:snapfi_app/modules/snapfi_app/domain/errors/errors.dart' as _i5;
-import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart'
-    as _i7;
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon.dart'
     as _i6;
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart'
+    as _i7;
 import 'package:snapfi_app/modules/snapfi_app/domain/repositories/pokemon_repository.dart'
     as _i3;
 
