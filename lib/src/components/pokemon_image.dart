@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon.dart';
 
 class PokemonImage extends StatelessWidget {
   final double width;

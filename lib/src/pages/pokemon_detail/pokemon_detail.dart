@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon.dart';
 import 'package:snapfi_app/src/bloc/pokemon/bloc.dart';
 import 'package:snapfi_app/src/bloc/pokemon/event.dart';
 import 'package:snapfi_app/src/bloc/pokemon/state.dart';

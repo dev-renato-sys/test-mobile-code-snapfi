@@ -1,6 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:snapfi_app/modules/snapfi_app/data/repositories/pokemon_repository_implementation.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/usecases/get_pokemon.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/usecases/get_pokemons.dart';
 import 'package:snapfi_app/modules/snapfi_app/external/datasource/pokemon_implementation.dart';
@@ -22,7 +22,7 @@ Future<void> init() async {
       () => GetPokemonUsecase(pokemonRepositoryImplementation: sl()));
 
   sl.registerLazySingleton<PokemonApiDataSource>(
-      () => PokemonApiDataSource());
+      () => PokemonApiDataSource(httpHelper: sl()));
 
-  sl.registerLazySingleton(() => Dio());
+  sl.registerLazySingleton(() => HttpHelper(url: ''));
 }

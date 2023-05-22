@@ -34,7 +34,7 @@ Future<void> main() async {
       expect(res.getStatusCode(), 200);
     });
 
-    test('test get only one pokemon data response[200]', () async {
+    test('test get pokemon by id [1] response[200]', () async {
       when(mockPokemonDatasource.pokemon()).thenAnswer((_) async {
         httpHelper.url = '${baseUrl}pokemon/1';
         return httpHelper.get();
@@ -44,8 +44,7 @@ Future<void> main() async {
       expect(res.getStatusCode(), 200);
     });
 
-    test(
-        'test get only one pokemon data response with filter name [charmander] [200]',
+    test('test get only one pokemon data response by name [charmander] [200]',
         () async {
       when(mockPokemonDatasource.pokemon()).thenAnswer((_) async {
         httpHelper.url = '${baseUrl}pokemon/charmander';

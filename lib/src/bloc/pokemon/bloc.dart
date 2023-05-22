@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/errors/errors.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/usecases/get_pokemon.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/usecases/get_pokemons.dart';

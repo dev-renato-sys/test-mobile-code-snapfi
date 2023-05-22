@@ -5,9 +5,8 @@ import '../../data/datasources/pokemon_datasource.dart';
 
 class PokemonApiDataSource implements PokemonDatasource {
   final String baseUrl = dotenv.env['BASE_URL']!;
-  late HttpHelper httpHelper = HttpHelper(url: '');
-
-  PokemonApiDataSource();
+  final HttpHelper httpHelper;
+  PokemonApiDataSource({ required this.httpHelper });
 
   @override
   Future<HttpHelper> pokemons({int? limit = 20}) async {

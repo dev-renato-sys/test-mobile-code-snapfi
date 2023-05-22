@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail/types.dart';
 
 class PokemonType extends StatelessWidget {
   final PokemonDetail pokemonDetail;

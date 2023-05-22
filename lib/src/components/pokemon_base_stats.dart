@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:snapfi_app/helpers/hex_color.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail/stats.dart';
 
 class PokemonBaseStats extends StatelessWidget {
   final PokemonDetail pokemonDetail;

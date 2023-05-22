@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
 import '../../domain/models/pokemon_response.dart';
-import '../../domain/models/pokemons.dart';
+import '../../domain/models/pokemon.dart';
 import '../../domain/errors/errors.dart';
 import '../../domain/repositories/pokemon_repository.dart';
 import '../../external/datasource/pokemon_implementation.dart';

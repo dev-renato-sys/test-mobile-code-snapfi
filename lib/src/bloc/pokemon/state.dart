@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon.dart';
 
 abstract class PokemonState extends Equatable {
   const PokemonState();
