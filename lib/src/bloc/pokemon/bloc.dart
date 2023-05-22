@@ -68,23 +68,5 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
                 emit(PokemonDetailState(pokemonDetail: pokemonDetail)));
       },
     );
-    // on<FavoritePokemon>(((event, emit) async {
-    //   await addPokemonToFavorites.call(event.pokemon);
-
-    //   Either<FailGetPokemon, List<Pokemon>> _getPokemon =
-    //       await getPokemons.call();
-
-    //   _getPokemon.fold(
-    //       (exception) =>
-    //           emit(const PokemonErrorState(message: 'something went wrong :(')),
-    //       (pokemonList) => pokemonList.isEmpty
-    //           ? emit(const PokemonErrorState(message: 'empty list :('))
-    //           : emit(PokemonLoadedState(pokemonList: pokemonList)));
-    // }));
-    // on<AddMorePokemons>(((event, emit) async {
-    //   await pokemonService.addMorePokemons(value: event.value);
-    //   PokemonState pokemonLoadedState = await pokemonService.getPokemons();
-    //   emit(pokemonLoadedState);
-    // }));
   }
 }
