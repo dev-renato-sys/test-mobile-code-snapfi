@@ -9,8 +9,6 @@ import 'event.dart';
 import 'state.dart';
 
 class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
-  // late Box box;
-  // PokemonService pokemonService;
   final GetPokemonsUsecase getPokemonsUsecase;
   final GetPokemonUsecase getPokemonUsecase;
 
