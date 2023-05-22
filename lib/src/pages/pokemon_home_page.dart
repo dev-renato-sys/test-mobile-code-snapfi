@@ -113,6 +113,7 @@ class _LoadHomePageState extends State<PokemonHomePage> {
                               state.props as List<Pokemon>;
                           return PokemonPokedexSkeleton(
                               child: GridView.count(
+                                padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 24.0),
                             controller: listPokemonController
                               ..addListener(() =>
                                   onOutsideOfView(pokemonBloc: pokemonBloc)),

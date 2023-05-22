@@ -21,7 +21,6 @@ class PokemonPokedexSkeleton extends StatelessWidget {
             ),
           ],
         ),
-        padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
         child: child,
       ),
     );
