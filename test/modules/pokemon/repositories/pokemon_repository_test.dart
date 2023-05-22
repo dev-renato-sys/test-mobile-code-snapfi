@@ -8,14 +8,14 @@ import '../route_mocks/pokemon_response_mock.dart';
 
 @GenerateNiceMocks([MockSpec<PokemonRepository>()])
 Future<void> main() async {
-  test('test model [PokemonResponse]', () async {
+  test('test model [PokemonResponse]', () {
     PokemonResponse pokemonResponseModel =
         PokemonResponse.fromJson(pokemonResponseMockFromAPI);
 
     expect(pokemonResponseModel, isNotNull);
   });
 
-  test('test model a[PokemonDetail]', () async {
+  test('test model [PokemonDetail]', () {
     PokemonDetail pokemonResponseModel =
         PokemonDetail.fromJson(pokemonDetailMock);
 
