@@ -2,10 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:snapfi_app/modules/snapfi_app/data/models/pokemon_response_model.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_response.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemon_detail_dto.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemons_dto.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/errors/errors.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/repositories/pokemon_repository.dart';
 import '../datasources/pokemon_datasource_test.mocks.dart';
@@ -33,8 +33,8 @@ Future<void> main() async {
           return Left(FailGetPokemon(message: ''));
         }
 
-        PokemonResponseModel pokemonResponseModel =
-            PokemonResponseModel.fromJson(res.getData());
+        PokemonResponseDto pokemonResponseModel =
+            PokemonResponseDto.fromJson(res.getData());
 
         return Right(pokemonResponseModel.results!);
       });

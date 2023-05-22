@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snapfi_app/helpers/hex_color.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemon_detail_dto.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
 
 class PokemonDetailSkeleton extends StatelessWidget {
   final PokemonDetail pokemonDetail;

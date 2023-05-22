@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:snapfi_app/modules/snapfi_app/data/repositories/pokemon_repository_implementation.dart';
-import '../entities/pokemons_dto.dart';
+import '../models/pokemons.dart';
 import '../errors/errors.dart';
 
 class GetPokemonsUsecase {

@@ -18,9 +18,7 @@ flutter pub get
 
 flutter run
 
-#### build runner task to crate mocks and anothers utils
-#### everytime that you create a new method inside [pokemonRepository, pokemonDatasource]
-#### classes you should remove text.mock and run this line below 
+#### build runner task to crate mocks and anothers utils everytime that you create a new method inside [pokemonRepository, pokemonDatasource] classes you should remove text.mock and run this line below 
 
 flutter pub run build_runner build
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:snapfi_app/modules/snapfi_app/domain/entities/pokemons_dto.dart';
+import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
 import 'package:snapfi_app/src/bloc/pokemon/bloc.dart';
 import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_detail.dart';
 import '../../injection_container.dart' as ic;
@@ -55,7 +55,9 @@ class PokemonCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: const BorderRadius.all(Radius.circular(10))),
-                height: phoneWidth > phoneHeight ? 100 : 40,
+                height: phoneWidth > phoneHeight
+                    ? phoneHeight / 4
+                    : phoneHeight / 20,
                 width: double.infinity,
                 child: Center(
                     child: Padding(
