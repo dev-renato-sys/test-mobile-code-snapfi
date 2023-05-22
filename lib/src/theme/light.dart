@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:snapfi_app/helpers/hex_color.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:quali_app/helpers/hex_color.dart';
 
 final Color primaryColor = HexColor.fromHex('#dc0a2d');
 
 final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
-  // textTheme: GoogleFonts.dmSansTextTheme(),
-  // colorScheme: ColorScheme.light(primaryContainer: HexColor.fromHex('#e0b53d')),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      foregroundColor: Colors.white, // This is a custom color variable
-      // textStyle: GoogleFonts.fredokaOne(),
+      foregroundColor: Colors.white,
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
@@ -48,11 +43,7 @@ final ThemeData lightTheme = ThemeData.light(useMaterial3: false).copyWith(
           fontSize: 12.0, fontWeight: FontWeight.bold, color: Colors.white),
       labelSmall: const TextStyle(
           fontSize: 10.0, fontWeight: FontWeight.bold, color: Colors.white)),
-  // .apply(bodyColor: Colors.black, displayColor: Colors.black),
   primaryIconTheme: const IconThemeData(color: Colors.white),
   iconTheme: const IconThemeData(color: Colors.white),
-  // primaryColor: HexColor.fromHex('#3399b5'),
-  // primaryColorDark: HexColor.fromHex('#e0b53d'),
-  // primaryColorLight: HexColor.fromHex('#e0b53d'),
   appBarTheme: AppBarTheme(color: primaryColor),
 );
