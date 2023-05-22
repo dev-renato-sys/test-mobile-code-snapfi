@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.light,
-      title: 'Quali APP',
+      title: 'Pokedex',
       theme: lightTheme,
       darkTheme: darkTheme,
       initialRoute: '/',
