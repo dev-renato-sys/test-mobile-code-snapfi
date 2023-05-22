@@ -24,4 +24,4 @@ flutter pub run build_runner build
 
 #### About
 
-Project made using Clean Dart based on Solid best practices;
+Project made using Clean Dart based on Solid best practices
