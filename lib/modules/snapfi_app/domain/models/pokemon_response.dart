@@ -2,7 +2,7 @@
 
 import 'pokemons.dart';
 
-class PokemonResponseDto {
+class PokemonResponse {
   int? count;
 
   String? next;
@@ -10,9 +10,9 @@ class PokemonResponseDto {
 
   List<Pokemon>? results;
 
-  PokemonResponseDto({this.count, this.next, this.previous, this.results});
+  PokemonResponse({this.count, this.next, this.previous, this.results});
 
-  PokemonResponseDto.fromJson(Map<String, dynamic> json) {
+  PokemonResponse.fromJson(Map<String, dynamic> json) {
     count = json['count'];
     next = json['next'];
     previous = json['previous'];

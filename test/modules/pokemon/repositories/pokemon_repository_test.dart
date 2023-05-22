@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -13,10 +14,11 @@ import 'pokemon_repository_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<PokemonRepository>()])
 Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   final MockPokemonDatasource mockPokemonDatasource = MockPokemonDatasource();
   final MockPokemonRepository mockPokemonRepository = MockPokemonRepository();
   late HttpHelper httpHelper = HttpHelper(url: '');
-  const String baseUrl = 'https://pokeapi.co/api/v2/';
+  String baseUrl = dotenv.env['BASE_URL']!;
   group(
       'check if pokemons response is received succesfully and tranformed into dto/model',
       () {
@@ -33,8 +35,8 @@ Future<void> main() async {
           return Left(FailGetPokemon(message: ''));
         }
 
-        PokemonResponseDto pokemonResponseModel =
-            PokemonResponseDto.fromJson(res.getData());
+        PokemonResponse pokemonResponseModel =
+            PokemonResponse.fromJson(res.getData());
 
         return Right(pokemonResponseModel.results!);
       });

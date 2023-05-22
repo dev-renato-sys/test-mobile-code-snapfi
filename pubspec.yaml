@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
+  flutter_dotenv: ^5.0.2
   flutter_svg: ^2.0.5
   get_it: ^7.6.0
   google_fonts: ^4.0.4
@@ -34,3 +35,4 @@ flutter:
   # Add assets from the images directory to the application.
   - assets/images/
   - assets/icons/
+  - .env

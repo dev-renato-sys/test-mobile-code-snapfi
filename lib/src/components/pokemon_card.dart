@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
 import 'package:snapfi_app/src/bloc/pokemon/bloc.dart';
+import 'package:snapfi_app/src/components/pokemon_image.dart';
 import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_detail.dart';
 import '../../injection_container.dart' as ic;
 
@@ -74,11 +76,13 @@ class PokemonCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: Align(
-                alignment: Alignment.center,
-                child: pokemon.getPokemonImage(
-                    width: phoneWidth > phoneHeight ? 100 : phoneWidth / 6,
-                    height: phoneWidth > phoneHeight ? 100 : 70),
-              ),
+                  alignment: Alignment.center,
+                  child: PokemonImage(
+                    imgUrl: dotenv.env["IMG_URL"]!,
+                    pokemon: pokemon,
+                    height: phoneWidth > phoneHeight ? 100 : phoneWidth / 6,
+                    width: phoneWidth > phoneHeight ? 100 : 70,
+                  )),
             ),
           ],
         ),
