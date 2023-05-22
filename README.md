@@ -6,6 +6,10 @@ A new Flutter project.
 ## to install flutter follow this link https://docs.flutter.dev/get-started/install
 ### another way to run flutter would be on debug mode
 
+#### navigate
+
+cd snapfi_app
+
 #### getting dependencies
 
 flutter pub get
