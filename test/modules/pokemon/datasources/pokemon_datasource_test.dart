@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -8,9 +9,10 @@ import 'pokemon_datasource_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<PokemonDatasource>()])
 Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   final MockPokemonDatasource mockPokemonDatasource = MockPokemonDatasource();
   HttpHelper httpHelper = HttpHelper(url: '');
-  const String baseUrl = 'https://pokeapi.co/api/v2/';
+  String baseUrl = dotenv.env['BASE_URL']!;
   group('testing pokemon routes', () {
     test('test get all pokemons route response [200]', () async {
       when(mockPokemonDatasource.pokemons()).thenAnswer((_) async {

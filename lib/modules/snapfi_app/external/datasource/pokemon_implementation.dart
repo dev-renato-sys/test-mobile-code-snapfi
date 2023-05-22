@@ -1,9 +1,10 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/http_helper.dart';
 
 import '../../data/datasources/pokemon_datasource.dart';
 
 class PokemonApiDataSource implements PokemonDatasource {
-  final String baseUrl = 'https://pokeapi.co/api/v2/';
+  final String baseUrl = dotenv.env['BASE_URL']!;
   late HttpHelper httpHelper = HttpHelper(url: '');
 
   PokemonApiDataSource();

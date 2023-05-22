@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemon_detail.dart';
 import 'package:snapfi_app/modules/snapfi_app/domain/models/pokemons.dart';
 import 'package:snapfi_app/src/bloc/pokemon/bloc.dart';
@@ -8,6 +9,7 @@ import 'package:snapfi_app/src/bloc/pokemon/state.dart';
 import 'package:snapfi_app/src/components/pokemon_about.dart';
 import 'package:snapfi_app/src/components/pokemon_base_stats.dart';
 import 'package:snapfi_app/src/components/pokemon_detail_skeleton.dart';
+import 'package:snapfi_app/src/components/pokemon_image.dart';
 import 'package:snapfi_app/src/components/pokemon_type.dart';
 import 'package:snapfi_app/src/pages/pokemon_detail/pokemon_error.dart';
 import 'package:snapfi_app/src/theme/light.dart';
@@ -169,8 +171,14 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                                           size: 16,
                                         )),
                                   const Spacer(),
-                                  widget.pokemonList[_index]
-                                      .getPokemonImage(width: 240, height: 260),
+                                  PokemonImage(
+                                    imgUrl: dotenv.env["IMG_URL"]!,
+                                    pokemon: Pokemon(
+                                        name: pokemonDetail.name,
+                                        url: pokemonDetail.id.toString()),
+                                    height: 260,
+                                    width: 240,
+                                  ),
                                   const Spacer(),
                                   if (widget.pokemonList.length - 1 != _index)
                                     IconButton(

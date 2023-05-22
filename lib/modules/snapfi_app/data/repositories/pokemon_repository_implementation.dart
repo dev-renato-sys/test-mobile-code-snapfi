@@ -24,8 +24,8 @@ class PokemonRepositoryImplementation extends PokemonRepository {
           statusCode: exceptionsInfos.statusCode));
     }
 
-    PokemonResponseDto pokemonsList =
-        PokemonResponseDto.fromJson(httpHelper.getData());
+    PokemonResponse pokemonsList =
+        PokemonResponse.fromJson(httpHelper.getData());
 
     return Right(pokemonsList.results!);
   }
